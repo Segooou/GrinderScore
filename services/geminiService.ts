@@ -3,7 +3,8 @@ import { ChatMode, Trade } from "../types";
 
 // The API key must be obtained exclusively from the environment variable process.env.API_KEY.
 // Assume this variable is pre-configured, valid, and accessible.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Usa import.meta.env (padrão do Vite) e o nome correto da variável
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export const sendChatMessage = async (
   message: string,
