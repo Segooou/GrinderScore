@@ -59,7 +59,7 @@ const Dashboard: React.FC<DashboardProps> = ({ trades, settings }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Card 1: Saldo da Carteira Manual */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
             <div className="mb-4">
                 <h3 className="text-gray-900 font-bold text-lg">Saldo da Carteira Manual</h3>
             </div>
@@ -85,7 +85,7 @@ const Dashboard: React.FC<DashboardProps> = ({ trades, settings }) => {
         </div>
 
         {/* Card 2: Meta Mensal */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <div className="flex justify-between items-start mb-4">
                 <div>
                     <h3 className="text-gray-900 font-bold text-lg">Meta Mensal</h3>
@@ -119,7 +119,7 @@ const Dashboard: React.FC<DashboardProps> = ({ trades, settings }) => {
       </div>
 
       {/* Centralized Win/Loss Bar - DARK THEME APPLIED HERE */}
-      <div className="bg-gray-900 rounded-xl border border-gray-800 shadow-sm p-4 flex flex-wrap justify-center items-center gap-6 md:gap-12 text-white transform hover:scale-[1.01] transition-transform">
+      <div className="bg-gray-900 rounded-xl border border-gray-800 shadow-sm p-4 flex flex-wrap justify-center items-center gap-6 md:gap-12 text-white transform hover:scale-[1.01] transition-transform animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
            <div className="flex items-center gap-2">
                <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50"></div>
                <span className="text-sm font-semibold text-gray-300">Wins: <span className="text-white">{stats.wins}</span></span>
@@ -135,7 +135,7 @@ const Dashboard: React.FC<DashboardProps> = ({ trades, settings }) => {
       </div>
 
       {/* Main Chart Section */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
         <div className="mb-6">
             <h3 className="text-lg font-bold text-gray-900 tracking-tight">Curva de Patrimônio</h3>
             <p className="text-sm text-gray-500">Evolução do capital ao longo do tempo.</p>

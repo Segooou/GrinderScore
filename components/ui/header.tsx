@@ -9,21 +9,17 @@ import { BarChart2 } from 'lucide-react';
 interface HeaderProps {
     onLogin: () => void;
     onGetStarted: () => void;
+    onNavigate: (view: 'HOME' | 'FEATURES' | 'ABOUT') => void;
 }
 
-export function Header({ onLogin, onGetStarted }: HeaderProps) {
+export function Header({ onLogin, onGetStarted, onNavigate }: HeaderProps) {
 	const [open, setOpen] = React.useState(false);
 	const scrolled = useScroll(10);
 
 	const links = [
-		{
-			label: 'Recursos',
-			href: '#features',
-		},
-		{
-			label: 'Sobre',
-			href: '#about',
-		},
+        { label: 'Início', view: 'HOME' as const },
+		{ label: 'Recursos', view: 'FEATURES' as const },
+		{ label: 'Sobre', view: 'ABOUT' as const },
 	];
 
 	React.useEffect(() => {
@@ -37,6 +33,12 @@ export function Header({ onLogin, onGetStarted }: HeaderProps) {
 		};
 	}, [open]);
 
+    const handleNavClick = (view: 'HOME' | 'FEATURES' | 'ABOUT') => {
+        onNavigate(view);
+        setOpen(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
 	return (
 		<header
 			className={cn('sticky top-0 z-50 w-full border-b border-transparent transition-all duration-300', {
@@ -45,7 +47,10 @@ export function Header({ onLogin, onGetStarted }: HeaderProps) {
 			})}
 		>
 			<nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 md:px-8">
-				<div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
+				<div 
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
+                    onClick={() => handleNavClick('HOME')}
+                >
                     <div className="bg-primary text-primary-foreground p-1.5 rounded-lg">
 					    <BarChart2 className="h-5 w-5" />
                     </div>
@@ -53,9 +58,13 @@ export function Header({ onLogin, onGetStarted }: HeaderProps) {
 				</div>
 				<div className="hidden items-center gap-6 md:flex">
 					{links.map((link) => (
-						<a key={link.label} className={cn(buttonVariants({ variant: 'ghost' }), "text-base font-medium text-muted-foreground hover:text-foreground")} href={link.href}>
+						<button 
+                            key={link.label} 
+                            className={cn(buttonVariants({ variant: 'ghost' }), "text-base font-medium text-muted-foreground hover:text-foreground cursor-pointer")} 
+                            onClick={() => handleNavClick(link.view)}
+                        >
 							{link.label}
-						</a>
+						</button>
 					))}
 					<Button variant="outline" onClick={onLogin} className="font-semibold">Entrar</Button>
 					<Button onClick={onGetStarted} className="font-semibold shadow-md">Começar Agora</Button>
@@ -75,17 +84,16 @@ export function Header({ onLogin, onGetStarted }: HeaderProps) {
 			<MobileMenu open={open} className="flex flex-col justify-between gap-4 p-6">
 				<div className="grid gap-y-4">
 					{links.map((link) => (
-						<a
+						<button
 							key={link.label}
 							className={buttonVariants({
 								variant: 'ghost',
 								className: 'justify-start text-lg h-12',
 							})}
-							href={link.href}
-                            onClick={() => setOpen(false)}
+							onClick={() => handleNavClick(link.view)}
 						>
 							{link.label}
-						</a>
+						</button>
 					))}
 				</div>
 				<div className="flex flex-col gap-3 mt-auto">

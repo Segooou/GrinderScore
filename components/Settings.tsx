@@ -26,10 +26,10 @@ const Settings: React.FC<SettingsProps> = ({ settings, onSave }) => {
 
   return (
     <div className="max-w-xl mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm p-8 animate-fade-in">
-      <h2 className="text-2xl font-bold text-gray-900 mb-8">Parâmetros da Conta</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-8 animate-fade-in-up">Parâmetros da Conta</h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
+        <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           <label className="block text-sm font-semibold text-gray-700 mb-2">Capital Inicial (BRL)</label>
           <input 
             type="number" 
@@ -41,7 +41,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onSave }) => {
           <p className="text-xs text-gray-400 mt-2">Base para o cálculo de crescimento patrimonial.</p>
         </div>
 
-        <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+        <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <div className="flex items-center gap-2 mb-2">
              <Target size={16} className="text-blue-600"/>
              <label className="block text-sm font-bold text-blue-900">Meta Mensal (BRL)</label>
@@ -58,7 +58,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onSave }) => {
           </p>
         </div>
 
-        <div>
+        <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
           <label className="block text-sm font-semibold text-gray-700 mb-2">Risco Máximo (%)</label>
           <input 
             type="number" 
@@ -71,7 +71,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onSave }) => {
            <p className="text-xs text-gray-400 mt-2">Parâmetro utilizado pela IA para gestão de risco.</p>
         </div>
 
-        <div className="pt-6 border-t border-gray-100">
+        <div className="pt-6 border-t border-gray-100 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <button 
             type="submit" 
             className="flex items-center justify-center gap-2 w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-gray-200"

@@ -120,7 +120,7 @@ const BehavioralAnalytics: React.FC<BehavioralAnalyticsProps> = ({ trades, setti
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Main Verdict Card */}
-      <div className={`rounded-2xl p-8 shadow-lg transition-all ${getVerdictColor(currentMonthMetrics.verdict)}`}>
+      <div className={`rounded-2xl p-8 shadow-lg transition-all animate-fade-in-up ${getVerdictColor(currentMonthMetrics.verdict)}`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
              <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
@@ -144,21 +144,21 @@ const BehavioralAnalytics: React.FC<BehavioralAnalyticsProps> = ({ trades, setti
 
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <div className="mb-3 p-3 bg-blue-50 text-blue-600 rounded-full">
                 <TrendingUp size={24} />
             </div>
             <span className="text-gray-500 text-sm font-medium">Taxa de Acerto</span>
             <span className="text-2xl font-bold text-gray-900 mt-1">{currentMonthMetrics.winRate.toFixed(1)}%</span>
         </div>
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
             <div className="mb-3 p-3 bg-violet-50 text-violet-600 rounded-full">
                 <Activity size={24} />
             </div>
             <span className="text-gray-500 text-sm font-medium">Trades no Mês</span>
             <span className="text-2xl font-bold text-gray-900 mt-1">{currentMonthMetrics.totalTrades}</span>
         </div>
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="mb-3 p-3 bg-rose-50 text-rose-600 rounded-full">
                 <ShieldAlert size={24} />
             </div>
@@ -170,7 +170,7 @@ const BehavioralAnalytics: React.FC<BehavioralAnalyticsProps> = ({ trades, setti
       </div>
 
       {/* Feedback Section */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm animate-fade-in-up" style={{ animationDelay: '0.25s' }}>
          <div className="flex items-center gap-2 mb-4">
             <Brain className="text-gray-900" size={20} />
             <h3 className="text-lg font-bold text-gray-900">Análise da IA</h3>
