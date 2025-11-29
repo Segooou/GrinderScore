@@ -98,7 +98,7 @@ export const getTrades = async (userId: string): Promise<Trade[]> => {
     return [];
   }
 
-  return (data || []).map((t: Record<string, unknown>) => ({
+  return (data || []).map((t: any) => ({
     id: t.id,
     userId: t.user_id,
     date: t.date,
@@ -199,7 +199,7 @@ export const getSettings = async (userId: string): Promise<UserSettings> => {
     .from('settings')
     .select('*')
     .eq('user_id', userId)
-    .maybeSingle();
+    .single();
 
   if (error || !data) {
     return { initialCapital: 10000, monthlyGoal: 1000, riskPerTrade: 1 };
@@ -244,7 +244,7 @@ export const getChatHistory = async (userId: string, date: string): Promise<Chat
     return [];
   }
 
-  return (data || []).map((c: Record<string, unknown>) => ({
+  return (data || []).map((c: any) => ({
     id: c.id,
     role: c.role,
     text: c.text,
@@ -293,6 +293,6 @@ export const getChatUsageDates = async (userId: string, year: number, month: num
 
     if (!data) return [];
 
-    const uniqueDates = new Set(data.map((item: Record<string, unknown>) => item.date));
+    const uniqueDates = new Set(data.map((item: any) => item.date));
     return Array.from(uniqueDates) as string[];
 }
